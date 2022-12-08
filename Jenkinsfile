@@ -26,5 +26,10 @@ pipeline{
                 echo "Welcome to pipeline as code!"
             }
         }
+        stage('6-securityCheck'){
+            steps{
+                sh 'bash -x /var/lib/jenkins/workspace/practical-groovy/security.sh'
+            }
+         }
     }
 }
