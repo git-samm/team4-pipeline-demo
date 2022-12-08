@@ -3,7 +3,7 @@ pipeline{
     stages{
         stage('1-repoClone'){
             steps{
-                sh 'df -h'
+                checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'git-id', url: 'https://github.com/git-samm/team4-pipeline-demo.git']]])
             }
         }
         stage('2-cpuAnalysis'){
